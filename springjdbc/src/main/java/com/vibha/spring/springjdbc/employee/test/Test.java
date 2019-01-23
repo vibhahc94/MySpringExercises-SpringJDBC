@@ -10,14 +10,17 @@ import com.vibha.spring.springjdbc.employee.dto.Employee;
 public class Test {
 
 	public static void main(String[] args) {
-		ApplicationContext ctx =  new ClassPathXmlApplicationContext("com/vibha/spring/springjdbc/employee/test/config.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext(
+				"com/vibha/spring/springjdbc/employee/test/config.xml");
 		EmployeeDao obj = (EmployeeDao) ctx.getBean("employeeDao");
 		Employee employee = new Employee();
 		employee.setId(3);
-		employee.setFirstName("Archie");
+		employee.setFirstName("Fred");
 		employee.setLastName("Andrews");
-		int result=obj.create(employee);
-		System.out.println("Number of rows added: "+result);
+		// int result=obj.create(employee);
+		//int result = obj.update(employee);
+		int result=obj.delete(3);
+		System.out.println("Number of rows deleted: " + result);
 	}
 
 }
